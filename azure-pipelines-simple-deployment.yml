@@ -6,20 +6,23 @@
 trigger:
 - master
 
-jobs:
-  # track deployments on the environment
-  - deployment: DeployWeb
-    displayName: deploy Web App
-    pool:
-      vmImage: ubuntu-latest
-    # creates an environment if it doesn't exist
-    environment:
-      name: 'Pruebas'
-    variables:
-      name: 'Deployment::Pruebas'
-    strategy:
-      # default deployment strategy, more coming...
-      runOnce:
-        deploy:
-          steps:
-          - script: echo my first deployment
+- stage: Pruebas
+  displayName: Pruebas
+
+  jobs:
+    # track deployments on the environment
+    - deployment: DeployWeb
+      displayName: deploy Web App
+      pool:
+        vmImage: ubuntu-latest
+      # creates an environment if it doesn't exist
+      environment:
+        name: 'Pruebas'
+      variables:
+        name: 'Deployment::Pruebas'
+      strategy:
+        # default deployment strategy, more coming...
+        runOnce:
+          deploy:
+            steps:
+            - script: echo my first deployment
