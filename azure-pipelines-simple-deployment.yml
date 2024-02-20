@@ -8,7 +8,7 @@ trigger:
 
 stages:
 - stage: Pruebas
-  displayName: Pruebas
+    displayName: Pruebas
 
   jobs:
     # track deployments on the environment
